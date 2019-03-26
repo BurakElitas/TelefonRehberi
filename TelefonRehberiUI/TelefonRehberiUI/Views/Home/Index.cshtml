@@ -1,0 +1,126 @@
+﻿@using TelefonRehberiEntities.Models
+@using TelefonRehberiUI.Models
+@using TelefonRehberiUI
+@model IEnumerable<TelefonRehberiEntities.Models.Personnel>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h2>Personel Listesi</h2>
+    </div>
+</div>
+<p>
+    @if(CurrentSession.Admin!=null)
+    {
+        @Bootstrap.LinkButton("/Home/Create", "primary", string.Empty, "fa-plus", string.Empty, "Yeni Personel")
+    }
+</p>
+
+<div class="row">
+    <div class="col-md-10">
+        <div class="alert alert-danger" id="deleting" style="display:none;">Siliniyor..</div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+
+
+                @if (CurrentSession.Admin == null)
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Surname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                }
+                else if(CurrentSession.Admin!=null)
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Department.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Surname)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Phone)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Personnel2)
+                    </th>
+                }
+
+
+                <th></th>
+            </tr>
+
+            @foreach (Personnel item in Model)
+            {
+                if (CurrentSession.Admin == null)
+                {
+                    <tr id="tr_@item.Id">
+                        
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                       <td>
+                            <button type="button" data-personel-id="@item.Id" class="btn btn-info btn-sm" data-toggle="modal" data-target="#details">
+                                <i class="fa fa-info"></i>
+                            </button>
+
+                        </td>
+                    </tr>
+                }
+                else if(CurrentSession.Admin!=null)
+                {
+                    <tr id="tr_@item.Id">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Department.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Surname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Phone)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Personnel2.Name)
+                        </td>
+
+                        <td>
+                            @Bootstrap.LinkButton("/Home/Edit", item.Id.ToString(), "warning", "btn-sm", "fa-edit", string.Empty, string.Empty)
+                            <button type="button" data-personel-id="@item.Id" class="btn btn-info btn-sm" data-toggle="modal" data-target="#details">
+                                <i class="fa fa-info"></i>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm btnSil" data-personel-id="@item.Id"><i class="fa fa-trash"></i></button>
+
+                        </td>
+                    </tr>
+
+                }
+            }
+
+        </table>
+    </div>
+</div>
+
+@Bootstrap.ModalPopup("details","Personel Bilgileri")
+<script src="~/Scripts/Home.js"></script>

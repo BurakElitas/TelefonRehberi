@@ -1,0 +1,84 @@
+﻿@using TelefonRehberiEntities.Models
+@using TelefonRehberiUI
+@model Personnel
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h2>Yeni Personel</h2>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+
+                @Html.ValidationSummary(false)
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.DepartmentId, "Departman", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("DepartmentId", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    @Html.LabelFor(model => model.ManagerId, "Yöneticisi", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <select name="ManagerId" class="form-control">
+                            <option selected value=""></option>
+
+
+                            @foreach (Personnel item in ViewBag.ManagerId)
+                            {
+
+                                <option value="@item.Id">@item.Name</option>
+
+                            }
+                        </select>
+                    </div>
+                </div>
+
+                
+
+                <div class="form-group row">
+                    <div class="offset-2 col-md-10">
+                        @Bootstrap.Button("submit","primary",string.Empty,"fa-save","Ekle")
+                        @Bootstrap.LinkButton("/Home/Index","light",string.Empty,"fa-arrow-left","Listeye Dön","Listeye Dön")
+                    </div>
+                </div>
+            </div>
+        }
+
+        
+    </div>
+
+</div>

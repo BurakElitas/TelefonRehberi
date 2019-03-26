@@ -1,0 +1,104 @@
+﻿@using TelefonRehberiUI.Models
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="/Home/Index">Anasayfa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ">
+                         @if (CurrentSession.Admin != null)
+                         {
+
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn nav-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class='fa fa-wrench'></i> Yönetim
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+
+                                        <a class="dropdown-item" href="/Home/Create"><i class='fa fa-plus'></i> Personel Ekle</a>
+
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/Department/Create"><i class='fa fa-plus'></i> Departman Ekle</a>
+                                        <a class="dropdown-item" href="/Department/Index"><i class='fa fa-list'></i> Departman Listesi</a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="/Admin/Create"><i class='fa fa-user'></i> Admin Ekle</a>
+                                        <a class="dropdown-item" href="/Admin/Index"><i class='fa fa-list'></i> Admin Listesi</a>
+
+                                    </div>
+                                </div>
+
+                            </li>
+                         }
+
+
+
+
+                </ul>
+                <ul class="navbar-nav ml-auto">
+                           @if(CurrentSession.Admin==null)
+                           {
+                            <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Login">
+                                    <i class='fa fa-sign-in'></i> Giriş
+                                </a>
+                            </li>
+                           }
+                           else
+                           {
+
+                           
+
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn nav-link " type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <i class='fas fa-user-alt'></i> @CurrentSession.Admin.UserName
+                                    </button>
+                                    
+                                </div>
+                               
+                            </li>
+                         <li class="nav-item">
+                                <a class="nav-link" href="/Admin/Singout">
+                                    <i class='fa fa-sign-out'></i>
+                                    Çıkış
+                                </a>
+                            </li>
+                         }
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿@using TelefonRehberiEntities.Models
+@model Personnel
+<div class="row">
+    <div class="col-md-12">
+        <label class="font-weight-bold">İsim:</label>
+        @Html.DisplayFor(model => model.Name)
+    </div>
+    <div class="col-md-12">
+        <label class="font-weight-bold">Soyisim:</label>
+        @Html.DisplayFor(model => model.Surname)
+    </div>
+    <div class="col-md-12">
+        <label class="font-weight-bold">Telefon:</label>
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+    <div class="col-md-12">
+        <label class="font-weight-bold">Departman:</label>
+        @Html.DisplayFor(model => model.Department.Name)
+    </div>
+    <div class="col-md-12">
+        <label class="font-weight-bold">Yöneticisi:</label>
+        @if (Model.Personnel2 != null)
+        {
+
+            @Html.DisplayFor(model => model.Personnel2.Name)@:&nbsp;
+            @Html.DisplayFor(Model => Model.Personnel2.Surname)
+        }
+        else
+        {
+            <label>Kendisi</label>
+        }
+
+    </div>
+</div>

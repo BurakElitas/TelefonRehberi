@@ -1,0 +1,50 @@
+﻿@using TelefonRehberi
+@model IEnumerable<TelefonRehberiEntities.Models.Admin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h2>Adminler</h2>
+    </div>
+</div>
+
+<p>
+    @Bootstrap.LinkButton("/Admin/Create","primary",string.Empty,"fa-plus","Yeni","Yeni Admin")
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-danger" style="display:none;" id="deleting">Siliniyor...</div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.UserName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Password)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr id="tr_@item.Id">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>
+                    <td width="90">
+                        @Bootstrap.LinkButton("/Admin/Edit", item.Id.ToString(), "warning", "btn-sm", "fa-edit", string.Empty, string.Empty)
+                        <button type="button" class="btn btn-danger btn-sm btnSil" data-admin-id="@item.Id"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<script src="~/Scripts/Admin.js"></script>

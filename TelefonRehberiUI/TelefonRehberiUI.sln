@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberiUI", "TelefonRehberiUI\TelefonRehberiUI.csproj", "{D2DBBF29-6611-4C71-8CCA-3DA1D6F807C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.Entities", "TelefonRehberiEntities\TelefonRehberi.Entities.csproj", "{9A9614F9-5298-4C93-BC2A-E9359CD5D004}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.DataAccessLayer", "TelefonRehberiDataAccessLayer\TelefonRehberi.DataAccessLayer.csproj", "{CBC66878-9398-4239-BBC1-7F96FD574159}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.BusinessLayer", "TelefonRehberiBusinessLayer\TelefonRehberi.BusinessLayer.csproj", "{616102F0-D683-4CE4-9C94-ABAEB2256025}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelefonRehberi.Core", "TelefonRehberi.Core\TelefonRehberi.Core.csproj", "{C45B26D9-D6D8-43E1-BEFB-686E9B411526}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D2DBBF29-6611-4C71-8CCA-3DA1D6F807C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2DBBF29-6611-4C71-8CCA-3DA1D6F807C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2DBBF29-6611-4C71-8CCA-3DA1D6F807C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2DBBF29-6611-4C71-8CCA-3DA1D6F807C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A9614F9-5298-4C93-BC2A-E9359CD5D004}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A9614F9-5298-4C93-BC2A-E9359CD5D004}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A9614F9-5298-4C93-BC2A-E9359CD5D004}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A9614F9-5298-4C93-BC2A-E9359CD5D004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CBC66878-9398-4239-BBC1-7F96FD574159}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBC66878-9398-4239-BBC1-7F96FD574159}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBC66878-9398-4239-BBC1-7F96FD574159}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBC66878-9398-4239-BBC1-7F96FD574159}.Release|Any CPU.Build.0 = Release|Any CPU
+		{616102F0-D683-4CE4-9C94-ABAEB2256025}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{616102F0-D683-4CE4-9C94-ABAEB2256025}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{616102F0-D683-4CE4-9C94-ABAEB2256025}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{616102F0-D683-4CE4-9C94-ABAEB2256025}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C45B26D9-D6D8-43E1-BEFB-686E9B411526}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C45B26D9-D6D8-43E1-BEFB-686E9B411526}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C45B26D9-D6D8-43E1-BEFB-686E9B411526}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C45B26D9-D6D8-43E1-BEFB-686E9B411526}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {558B51B6-01D4-4C14-9D38-9E8DA6FD432A}
+	EndGlobalSection
+EndGlobal

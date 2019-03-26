@@ -1,0 +1,23 @@
+﻿@using TelefonRehberiEntities.Models
+@using TelefonRehberiUI
+@model Admin
+@{
+    ViewBag.Title = "Login";
+}
+<link href="~/Content/Login.css" rel="stylesheet" />
+
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        @Html.ValidationSummary(true)
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control mb-2", placeholder = "Username" })
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control mb-2", placeholder = "Password" })
+            @Bootstrap.Button("submit", "primary", "btn-lg btn-block btn-signin", string.Empty, "Giriş")
+        }
+
+    </div>
+</div>

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<TelefonRehberiEntities.Models.Department>
+
+@{
+    ViewBag.Title = "Index";
+}
+<div class="row mt-4">
+    <div class="col-md-12">
+        <h2>Departman Listesi</h2>
+    </div>
+</div>
+
+<p>
+    @Bootstrap.LinkButton("/Department/Create", "primary", string.Empty, "fa-plus", string.Empty, "Yeni Departman")
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="alert alert-danger" style="display:none;" id="deleting">Siliniyor...</div>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr id="tr_@item.Id">
+                    <td width="970">
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Bootstrap.LinkButton("/Department/Edit", item.Id.ToString(), "warning", "btn-sm", "fa-edit", string.Empty, string.Empty)
+                        <button type="button" class="btn btn-danger btn-sm btnSil" data-department-id="@item.Id"><i class="fa fa-trash"></i></button>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<script src="~/Scripts/DepartmentDelete.js"></script>
